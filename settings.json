@@ -5,15 +5,15 @@
 */
 {
   // name your instance!
-  "title": "Bulwark Crypto",
+  "title": "Crosspol",
 
-  "address": "195.201.58.253",
+  "address": "explorer.crosspol.tech",
 
   // coin name
-  "coin": "Bulwark",
+  "coin": "Crosspol",
 
   // coin symbol
-  "symbol": "BWK",
+  "symbol": "CPL",
 
   // coin type
   //  Options:
@@ -36,15 +36,15 @@
   //     Cerulean, Cosmo, Cyborg, Darkly, Flatly, Journal, Lumen, Paper,
   //     Readable, Sandstone, Simplex, Slate, Spacelab, Superhero, United, Yeti
   // theme (see /public/themes for available themes)
-  "theme": "Lumen",
+  "theme": "Spacelab",
 
   // port to listen for requests on.
-  "port" : 80,
+  "port" : 3001,
 
   // database settings (MongoDB)
   "dbsettings": {
-    "user": "3er44we222",
-    "password": "3eu4ue8hhk988!kd8",
+    "user": "sigwo",
+    "password": "testing",
     "database": "explorerdb",
     "address": "localhost",
     "port": 27017
@@ -57,13 +57,13 @@
   // wallet settings
   "wallet": {
     "host": "localhost",
-    "port": 13000,
-    "user": "rpcuserbwk",
-    "pass": "aifjsdjf80sdfhsd09f"
+    "port": 11772,
+    "user": "crosspolrpc",
+    "pass": "CjnuSFBQ2L9M24uDFcjgjwzhY9NFeELwv6ESaGvdJQHk"
   },
 
   // confirmations
-  "confirmations": 40,
+  "confirmations": 50,
 
   // language settings
   "locale": "locale/en.json",
@@ -71,7 +71,7 @@
   // menu settings
   "display": {
     "api": true,
-    "markets": false,
+    "markets": true,
     "richlist": true,
     "twitter": true,
     "facebook": false,
@@ -88,23 +88,23 @@
   "index": {
     "show_hashrate": true,
     "show_coin_supply": true,
-    "difficulty": "Hybrid",
+    "difficulty": "POS",
     "last_txs": 100
   },
 
   // ensure links on API page are valid
   "api": {
     "blockindex": 1337,
-    "blockhash": "000000000009c6ca1387f80d3ad0ac9e339abdffdae529b929cb226148a8b348",
-    "txhash": "371a090bb5aa417af47da75eaef3867f76b2a978fb49372c52a8d2ffa385b586",
-    "address": "bMQpRsvfPnVAsba18S9v7LZAaBnxEAeTtx"
+    "blockhash": "000000323d374c9cd5bf2215f3581586e69d14eeda6fd3438f3547951ae84daa",
+    "txhash": "2eebbdd27021186045df1da1a12ab799391c548fb8ad6182643b4b7af48639e6",
+    "address": "CfExyzwtousCoxdMUkQsiSXoKr6Uouc4aN"
   },
 
   // market settings
   //supported markets: bittrex, poloniex, yobit, empoex, bleutrade, cryptopia, ccex
   //default market is loaded by default and determines last price in header
   "markets": {
-    "coin": "JBS",
+    "coin": "MER",
     "exchange": "BTC",
     "enabled": ["bittrex"],
     "cryptopia_id": "1658",
@@ -132,7 +132,7 @@
   // Masternodes page
   // default port: Default port a masternode is running. 
   "masternodes": {
-    "default_port": 52543,
+    "default_port": 11775,
 
     // Use index-based values (starting with 0).
     // 0 is the key of the masterlist data.
@@ -161,14 +161,14 @@
       ["Stocks.Exchange", "https://stocks.exchange/trade/BWK/BTC"],
       ["CoinsMarkets", "https://coinsmarkets.com/trade-BTC-BWK.htm"]
     ],
-    "masternode_required": 5000,
-    "block_time_sec": 120,
-    "block_reward_mn": 5
+    "masternode_required": 20000,
+    "block_time_sec": 60,
+    "block_reward_mn": 4.5
   },
 
   // CoinMarketCap integration
   "coinmarketcap": {
-    "ticker": "bulwark"
+    "ticker": "MER"
   },
 
   // twitter, facebook, googleplus
@@ -198,7 +198,7 @@
   // HEAVY: retreive from heavys getsupply api call
   // BALANCES : total of all address balances
   // TXOUTSET : retreive from gettxoutsetinfo api call
-  "supply": "COINBASE",
+  "supply": "GETINFO",
 
   // how to acquire network hashrate
   // getnetworkhashps: uses getnetworkhashps api call, returns in GH/s
