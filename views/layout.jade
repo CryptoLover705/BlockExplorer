@@ -109,7 +109,7 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='https://mercurytoken.io') #{settings.title}
+          a.navbar-brand(href='https://explorer.gravium.io') #{settings.title}
         .collapse.navbar-collapse(id='navbar-collapse')
           ul.nav.navbar-nav
             li#home
@@ -166,7 +166,7 @@ html
         if settings.display.coinmarketcap == true
           .col-lg-5.col-md-8
             .panel.panel-primary.panel-summary
-              .panel-heading
+              .panel-heading.text-center
                 span Market
               .panel-body
                 row.text-center
@@ -197,27 +197,26 @@ html
           .col-lg-3.col-md-0
 
         if settings.index.show_coin_supply
-          - supplyPanelSize = settings.display.coinmarketcap == true ? "col-lg-2 col-md-4 col-sm-4" : "col-lg-3 col-md-4 col-sm-4"
+          - supplyPanelSize = settings.display.coinmarketcap == true ? "col-lg-2 col-md-4 col-sm-4" : "col-lg-2 col-md-4 col-sm-4"
           div(class=supplyPanelSize)
             .panel.panel-primary.panel-summary
-              .panel-heading
+              .panel-heading.text-center
                 span #{settings.locale.ex_supply}
               .panel-body(style="padding-top: 35px")
                 row.text-center
                   .col-md-12
-                    h1#supply -
+                    label#supply -
+
         if settings.index.show_hashrate
-          .col-lg-3.col-md-4.col-sm-4
+          .col-lg-2.col-md-4.col-sm-4
             .panel.panel-primary.panel-summary
-              .panel-heading
+              .panel-heading.text-center
                 span #{settings.locale.network}
               .panel-body(style="padding-top: 25px")
                 row.text-center
                   .col-md-12
-                    h1
                       if settings.index.difficulty == 'Hybrid'
                         label#hashrate -
-                        <br>
                         label#lblX1
                       else
                         label#hashrate -
@@ -233,25 +232,28 @@ html
                         =" (PH/s)"
                       else if settings.nethash_units == 'H'
                         =" (H/s)"
-                    h3
-                      label #{settings.locale.difficulty}: &nbsp;
+                row.text-center
+                  .col-md-12
+                    small #{settings.locale.difficulty}:
                       if settings.index.difficulty == 'Hybrid'
                         label#difficulty -
-                        <br>
                         label#difficultyHybrid -
                       else
                         label#difficulty -
+
         if settings.display.masternodes == true
           .col-lg-2.col-md-4.col-sm-4
             .panel.panel-primary.panel-summary
-              .panel-heading
+              .panel-heading.text-center
                 span #{settings.locale.masternodes}
               .panel-body(style="padding-top: 25px")
                 row.text-center
                   .col-md-12
-                    h1#masternodeCount -
-                    h3 online:&nbsp;
-                      label#masternodeOnlineCount -
+                    label#masternodeCount
+                row.text-center
+                  .col-md-12
+                    small ENABLED:
+                      label#masternodeOnlineCount
 
     .col-md-12
       .row.text-center(style='margin-top:10px;margin-bottom:20px;')
