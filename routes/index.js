@@ -40,6 +40,66 @@ function route_get_block(res, blockhash) {
 }
 /* GET functions */
 
+function route_get_tx_details(res, txid) {
+  if (txid == settings.genesis_tx) {
+    route_get_block(res, settings.genesis_block);
+  } else {
+    db.get_tx(txid, function(tx) {
+      if (tx) {
+        lib.get_blockcount(function(blockcount) {
+          res.json({ active: 'tx', tx: tx, confirmations: settings.confirmations, blockcount: blockcount});
+        });
+      }
+      else {
+        lib.get_rawtransaction(txid, function(rtx) {
+          if (rtx.txid) {
+            lib.prepare_vin(rtx, function(vin) {
+              lib.prepare_vout(rtx.vout, rtx.txid, vin, function(rvout, rvin) {
+                lib.calculate_total(rvout, function(total){
+                  if (!rtx.confirmations > 0) {
+                    var utx = {
+                      txid: rtx.txid,
+                      vin: rvin,
+                      vout: rvout,
+                      total: total.toFixed(8),
+                      timestamp: rtx.time,
+                      blockhash: '-',
+                      blockindex: -1,
+                    };
+                    res.json({ active: 'tx', tx: utx, confirmations: settings.confirmations, blockcount:-1});
+                  } else {
+                    var utx = {
+                      txid: rtx.txid,
+                      vin: rvin,
+                      vout: rvout,
+                      total: total.toFixed(8),
+                      timestamp: rtx.time,
+                      blockhash: rtx.blockhash,
+                      blockindex: rtx.blockheight,
+                    };
+                    lib.get_blockcount(function(blockcount) {
+                      res.json({ active: 'tx', tx: utx, confirmations: settings.confirmations, blockcount: blockcount});
+                    });
+                  }
+                });
+              });
+            });
+          } else {
+            route_get_index2(res, null);
+          }
+        });
+      }
+    });
+  }
+}
+
+
+function route_get_index2(res, error) {
+  res.json({ active: 'home', error: error, warning: null});
+}
+
+/* GET functions */
+
 function route_get_tx(res, txid) {
   if (txid == settings.genesis_tx) {
     route_get_block(res, settings.genesis_block);
@@ -329,6 +389,10 @@ router.get('/reward', function(req, res){
   //});
 });
 
+router.get('/txDetail/:txid', function(req, res) {
+  route_get_tx_details(res, req.param('txid'));
+});
+
 router.get('/tx/:txid', function(req, res) {
   route_get_tx(res, req.param('txid'));
 });
@@ -423,7 +487,7 @@ router.get('/ext/summary', function(req, res) {
                     difficultyHybrid: difficultyHybrid,
                     masternodeCount: masternodecount,
                     masternodeOnlineCount: masternodeonlinecount,
-                    supply: formatNum(stats.supply, { maxFraction: 4 }),
+                    supply: formatNum(stats.supply, { maxFraction: 0 }),
                     hashrate: hashrate,
                     lastPriceBtc: formatNum(stats.last_price, { maxFraction: 8 }),
                     lastPriceUsd: formatCurrency(cmc.price_usd, { maxFraction: 6 }),
@@ -491,12 +555,12 @@ router.get('/ext/masternodes', function(req, res) {
         if (settings.masternodes.list_format.lastpaid > -1)
           mnItem.lastpaid = mnData[settings.masternodes.list_format.lastpaid - 1];
 
-/*        // IP
+        // IP
         if (settings.masternodes.list_format.ip === 0)
           mnItem.ip = key.trim().replace(':'+settings.masternodes.default_port, '');
         else if (settings.masternodes.list_format.ip > -1)
           mnItem.ip = mnData[settings.masternodes.list_format.ip - 1].trim().replace(':'+settings.masternodes.default_port, '');
-*/
+
         mnList.push(mnItem);
       }
     }
