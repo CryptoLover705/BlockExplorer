@@ -12,13 +12,13 @@ block content
         lengthChange: true,
         processing: false,
         bPaginate: true,
-        pageLength: 25,
-        order: [[ 3, "desc" ]],
+        pageLength: 100,
+        order: [[ 4, "desc" ]],
         ajax: {
           url: '/ext/masternodes',
           dataSrc: function ( json ) {
             for ( var i=0;i<json.data.length; i++ ) {
-              json.data[i]['address'] = "<a href='/address/" + json.data[i]['address'] + "'>" + json.data[i]['address'] + "</a>";
+              json.data[i]['address'] = "<a class='mono' href='/address/" + json.data[i]['address'] + "'>" + json.data[i]['address'] + "</a>";
               json.data[i]['lastseen'] = new Date((json.data[i]['lastseen']) * 1000).toLocaleString();
               if (json.data[i]['lastpaid'])
                 json.data[i]['lastpaid'] = new Date((json.data[i]['lastpaid']) * 1000).toLocaleString();
@@ -29,11 +29,19 @@ block content
           }
         },
         columns: [
-          { data: 'address', width: '25%', className: 'text-left' },
-          { data: 'status', width: '15%' },
-          { data: 'lastseen', width:'25%' },
-          { data: 'lastpaid', width:'25%' },
-        ]
+          { data: 'address', width: '30%'},
+          { data: 'ip', width: '20%' },
+          { data: 'status', width: '10%' },
+          { data: 'lastseen', width:'20%' },
+          { data: 'lastpaid', width:'20%' },
+        ],
+        'rowCallback': function(row, data, index){
+          if(data['status'] == "WATCHDOG_EXPIRED") {
+            $(row).find('td:eq(2)').addClass('warning');
+          } else if(data['status'] != "ENABLED" ) {
+            $(row).find('td:eq(2)').addClass('danger');
+          }
+         }
       });
     });
   .col-md-12(style="margin-bottom: 4%")
@@ -43,7 +51,8 @@ block content
       table#masternodes-table.table.table-bordered.table-striped
         thead
           tr
-            th #{settings.locale.mn_address}
+            th.text-center #{"Payment Address"}
+            th.text-center #{"IP Address"}
             th.text-center #{settings.locale.mn_status}
             th.text-center #{settings.locale.mn_lastseen}
             th.text-center #{settings.locale.mn_lastpaid}
