@@ -1,0 +1,13 @@
+if settings.labels[r.addresses]
+  if settings.labels[r.addresses].type
+    label(class='label label-#{settings.labels[r.addresses].type} hidden-xs', style='margin-left:15px;')
+      =settings.labels[r.addresses].label
+      if settings.labels[r.addresses].url
+        a(href='#{settings.labels[r.addresses].url}', target='_blank')
+          span.fa.fa-question-circle(style='margin-left:5px;')
+  else
+    label.label.label-default.hidden-xs(style='margin-left:15px;')
+      =settings.labels[r.addresses].label
+      if settings.labels[r.addresses].url
+        a(href='#{settings.labels[r.addresses].url}', target='_blank')
+          span.fa.fa-question-circle(style='margin-left:5px;')
