@@ -20,7 +20,7 @@ block content
               .panel-body.text-center
                 .row.info-row
                   .col-md-4
-                    img(src='#{settings.logo}', style='')
+                    img(src='#{settings.logo}', style='width: 80px;')
                   .col-md-4
                     h2 #{settings.coin} &nbsp(#{settings.symbol})
                     span #{lastPriceBtc} BTC
@@ -60,22 +60,22 @@ block content
                   .col-xs-2.col-md-offset-3.text-right
                     div Daily
                   .col-xs-10.col-md-7.text-left
-                    div #{dailyCoin} #{settings.symbol} / #{dailyBtc} BTC / $#{dailyUsd}
+                    div #{dailyCoin} #{settings.symbol} / #{dailyBtc} BTC <!--/ $#{dailyUsd}.-->
                 .row.earnings
                   .col-xs-2.col-md-offset-3.text-right
                     div Weekly
                   .col-xs-10.col-md-7.text-left
-                    div #{weeklyCoin} #{settings.symbol} / #{weeklyBtc} BTC / $#{weeklyUsd}
+                    div #{weeklyCoin} #{settings.symbol} / #{weeklyBtc} BTC <!--/ $#{weeklyUsd}-->
                 .row.earnings
                   .col-xs-2.col-md-offset-3.text-right
                     div Monthly
                   .col-xs-10.col-md-7.text-left
-                    div #{monthlyCoin} #{settings.symbol} / #{monthlyBtc} BTC / $#{monthlyUsd}
+                    div #{monthlyCoin} #{settings.symbol} / #{monthlyBtc} BTC <!--/ $#{monthlyUsd}-->
                 .row.earnings
                   .col-xs-2.col-md-offset-3.text-right
                     div Yearly
                   .col-xs-10.col-md-7.text-left
-                    div #{yearlyCoin} #{settings.symbol} / #{yearlyBtc} BTC / $#{yearlyUsd}
+                    div #{yearlyCoin} #{settings.symbol} / #{yearlyBtc} BTC <!-- / $#{yearlyUsd}-->
                 if (calculatedBasedOnRealData)
                   .row &nbsp;
                   .row.earnings
