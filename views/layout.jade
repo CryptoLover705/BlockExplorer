@@ -109,7 +109,7 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='https://explorer.gravium.io') #{settings.title}
+          a.navbar-brand(href='/') #{settings.title}
         .collapse.navbar-collapse(id='navbar-collapse')
           ul.nav.navbar-nav
             li#home
@@ -174,13 +174,13 @@ html
                     h1
                       label#price_usd
                       =" USD"
-                    h5#price_percent_change
-                      =" ("
-                      label#price_percent_change_value
-                      ="%)"
                     h3
                       label#price_btc
                       =" BTC"
+                      span#price_percent_change
+                        =" ("
+                        label#price_percent_change_value
+                        ="%)"
                   .col-sm-4
                     p(class="text-right") Market cap:
                     p(class="text-right") 24H Volume:
@@ -266,9 +266,9 @@ html
     .navbar.navbar-default.navbar-fixed-bottom.hidden-xs
       .col-md-4
         ul.nav
-          li.text-center(style='margin-left:80px;margin-right:80px;')
+          li
             p(style='margin-top:15px;') 
-              a.navbar-link(href='https://github.com/iquidus/explorer', target='_blank') Powered by Iquidus Explorer 
+              a.navbar-link(href='', target='_blank') Powered by a customized Iquidus Explorer 
    
       span.connections
         label#lblBlockcount.label.label-default
