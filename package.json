@@ -17,7 +17,7 @@
     "bitcoin-node-api": "0.1.0",
     "body-parser": "~1.0.0",
     "cookie-parser": "~1.0.1",
-    "debug": "~0.7.4",
+    "debug": "~> 2.6.9",
     "express": "~4.2.0",
     "format-currency": "^1.0.0",
     "format-num": "^1.0.0",
@@ -27,6 +27,7 @@
     "mongodb": "2.0.45",
     "mongoose": "4.1.10",
     "morgan": "~1.0.0",
+    "package.json": "^2.0.1",
     "qr-image": "~2.0.0",
     "request": "2.74.0",
     "static-favicon": "~1.0.0"
