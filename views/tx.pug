@@ -2,7 +2,7 @@ extends layout
 
 block content
   - var time = format_unixtime(tx.timestamp)
-  .col-xs-12.col-md-10.col-md-offset-1
+  .col-xs-12.col-md-12.col-lg-12
     .well.well-sm.hidden-lg.hidden-md(style='word-wrap:break-word;')
       | #{tx.txid}
     .panel.panel-default

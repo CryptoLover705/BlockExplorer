@@ -60,10 +60,10 @@ block content
         },
         columns: [
           { data: 'blockindex', width: '8%' },
-          { data: 'txid', width: '40%' },
+          { data: 'txid', width: '40%', className: 'hidden-xs hidden-md'},
           { data: 'recipients', width:'5%' },
           { data: 'total', width: '15%', className: 'text-right' },
-          { data: 'timestamp', width: '25%' },
+          { data: 'timestamp', width: '25%', className: '' },
         ]
       });
       setInterval( function () {
@@ -98,6 +98,4 @@ block content
             th.text-center #{settings.locale.mkt_amount} (#{settings.symbol})
             th.text-center #{settings.locale.timestamp}
         tbody.text-center
-    .footer-padding
-      
-              
+    .footer-padding    

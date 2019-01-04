@@ -8,7 +8,7 @@
           span.fa.fa-flag-checkered
         th #{settings.locale.tx_address}
         th.hidden-xs #{settings.locale.rl_balance} (#{settings.symbol})
-        th.hidden-xs(style='text-align:center;') %
+        th.hidden-xs.hidden-md(style='text-align:center;') %
     tbody
       - var count = 0
       each item in balance
@@ -26,5 +26,5 @@
             include ./rl_labels.pug
           td.hidden-xs.text-right
             =itemFixed.toFixed(8)
-          td.hidden-xs(style='text-align:center;') 
+          td.hidden-xs.hidden-md(style='text-align:center;') 
             =percentage.toFixed(2)

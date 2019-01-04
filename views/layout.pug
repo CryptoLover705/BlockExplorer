@@ -138,7 +138,7 @@ html
                   span.menu-text #{settings.locale.menu_richlist}
             if settings.display.markets == true
               li#markets
-                a.navbar-link.loading(href='/markets/#{settings.markets.default}') 
+                a.navbar-link.loading(href='/markets/' + settings.markets.default) 
                   span.fa.fa-line-chart
                   span.menu-text #{settings.locale.menu_markets}
             if settings.display.masternodes == true
@@ -157,27 +157,27 @@ html
                   span.glyphicon.glyphicon-info-sign
                   span.menu-text #{settings.locale.menu_api}
           ul.nav.nav-bar.navbar-right
-            img(src=`${settings.logo}`, style='margin-top:4px;height:40px;')
+            img(src=settings.logo, style='margin-top:4px;height:40px;')
 
     .col-md-12
       .row
         if settings.display.masternodes == false
           .col-lg-1.col-md-2
         if settings.display.coinmarketcap == true
-          .col-lg-5.col-md-8
+          .col-lg-6.col-md-7.col-sm-12
             .panel.panel-primary.panel-summary
               .panel-heading.text-center
                 span #{settings.locale.ex_market}
               .panel-body
                 row.text-center
 
-                  .col-md-6
+                  .col-sm-6
                     row.text-center
-                      .col-md-12
+                      .col-sm-12
                         label#price_usd
                         =" USD"
                     row.text-center
-                      .col-md-12
+                      .col-sm-12
                         small
                           span#price_btc 
                           =" BTC"
@@ -186,15 +186,15 @@ html
                             label#price_percent_change_value
                             ="%)"
 
-                  .col-md-6
+                  .col-sm-6
                     row.text-center
-                      .col-md-12
+                      .col-sm-12
                         span.text-left
                           span #{settings.locale.ex_marketcap}
                           label#cmc_market_cap -
                           =" USD"
                     row.text-center
-                      .col-md-12
+                      .col-sm-12
                         span.text-left
                           span #{settings.locale.ex_24hvolume}
                           label#cmc_volume_24h -
@@ -203,7 +203,7 @@ html
           .col-lg-3.col-md-0
 
         if settings.index.show_coin_supply
-          - supplyPanelSize = settings.display.coinmarketcap == true ? "col-lg-2 col-md-4 col-sm-4" : "col-lg-2 col-md-4 col-sm-4"
+          - supplyPanelSize = settings.display.coinmarketcap == true ? "col-lg-2 col-md-2 col-sm-4" : "col-lg-2 col-md-2 col-sm-4"
           div(class=supplyPanelSize)
             .panel.panel-primary.panel-summary
               .panel-heading.text-center
@@ -214,13 +214,13 @@ html
                     label#supply -
 
         if settings.index.show_hashrate
-          .col-lg-2.col-md-4.col-sm-4
+          .col-lg-2.col-md-3.col-sm-4
             .panel.panel-primary.panel-summary
               .panel-heading.text-center
                 span #{settings.locale.network}
               .panel-body(style="padding-top: 25px")
                 row.text-center
-                  .col-md-12
+                  .col-sm-12
                       if settings.index.difficulty == 'Hybrid'
                         label#hashrate -
                         label#lblX1
@@ -239,7 +239,7 @@ html
                       else if settings.nethash_units == 'H'
                         =" (H/s)"
                 row.text-center
-                  .col-md-12
+                  .col-sm-12
                     small #{settings.locale.difficulty}:
                       if settings.index.difficulty == 'Hybrid'
                         label#difficulty -
@@ -248,16 +248,16 @@ html
                         label#difficulty -
 
         if settings.display.masternodes == true
-          .col-lg-2.col-md-4.col-sm-4
+          .col-lg-2.hidden-md.col-sm-4
             .panel.panel-primary.panel-summary
               .panel-heading.text-center
                 span #{settings.locale.masternodes}
               .panel-body(style="padding-top: 25px")
                 row.text-center
-                  .col-md-12
+                  .col-sm-12
                     label#masternodeCount
                 row.text-center
-                  .col-md-12
+                  .col-sm-12
                     small ENABLED:
                       label#masternodeOnlineCount
 
@@ -274,7 +274,7 @@ html
         ul.nav
           li
             p(style='margin-top:15px;') 
-              a.navbar-link(href='', target='_blank') Powered by a customized Iquidus Explorer 
+              a.navbar-link(href='https://github.com/Znuff/cryptocurrency-explorer/', target='_blank') Powered by a customized Iquidus Explorer 
    
       span.connections
         label#lblBlockcount.label.label-default
