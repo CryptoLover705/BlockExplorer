@@ -1,6 +1,4 @@
-This explorer is forked from Luke's Explorer (https://github.com/iquidus/explorer)  with a bit of flavoring from https://github.com/masterhash-us/Explorer, which seems to be gone now. Cleaning up README.md. History can be found in the first upload commit.
-
-Iquidus Explorer - 1.6.1
+Iquidus Explorer - 1.9.0
 ================
 
 An open source block explorer written in node.js.
@@ -94,11 +92,6 @@ sync.js (located in scripts/) is used for updating the local databases. This scr
 Iquidus Explorer is intended to be generic so it can be used with any wallet following the usual standards. The wallet must be running with atleast the following flags
 
     -daemon -txindex
-
-### Donate (Left Luke's addresses, please contribute!)  
-
-    BTC: 168hdKA3fkccPtkxnX8hBrsxNubvk4udJi
-    JBS: JZp9893FMmrm1681bDuJBU7c6w11kyEY7D (no longer valid, use BTC address)
 
 ### Known Issues
 
