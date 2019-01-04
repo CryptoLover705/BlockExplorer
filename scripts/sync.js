@@ -13,6 +13,7 @@ var mongoose = require('mongoose')
 
 var mode = 'update';
 var database = 'index';
+mongoose.set('useCreateIndex', true)
 
 // displays usage and exits
 function usage() {
@@ -135,7 +136,7 @@ is_locked(function (exists) {
   } else {
     create_lock(function (){
       console.log("script launched with pid: " + process.pid);
-      mongoose.connect(dbString, function(err) {
+      mongoose.connect(dbString, { useNewUrlParser: true }, function(err) {
         if (err) {
           console.log('Unable to connect to database: %s', dbString);
           console.log('Aborting');
