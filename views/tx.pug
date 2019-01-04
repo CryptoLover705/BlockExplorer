@@ -79,7 +79,7 @@ block content
                       tr
                         td 
                           a.mono.loading(href='/address/#{r.addresses}') #{r.addresses}
-                            include includes/rl_test.jade
+                            include includes/rl_test.pug
                         td.danger.hidden-xs #{ramount.toFixed(8)}
                       tr.hidden-lg.hidden-md
                           td.danger #{ramount.toFixed(8)} #{settings.symbol}
@@ -102,7 +102,7 @@ block content
                     tr
                       td 
                         a.mono.loading(href='/address/#{r.addresses}') #{r.addresses}
-                          include includes/rl_test.jade
+                          include includes/rl_test.pug
                       td.success.hidden-xs  #{ramount.toFixed(8)}
                     tr.hidden-lg.hidden-md
                       td.success #{ramount.toFixed(8)} #{settings.symbol}
@@ -110,7 +110,7 @@ block content
                     tr
                       td 
                         a.loading(href='/address/#{r.addresses}') #{r.addresses}
-                          include includes/rl_test.jade
+                          include includes/rl_test.pug
                       td.success.hidden-xs  #{ramount.toFixed(8)}
                     tr.hidden-lg.hidden-md
                       td.success #{ramount.toFixed(8)} #{settings.symbol} 

@@ -13,14 +13,14 @@ block content
                 strong #{settings.locale.coininfo_basicinfo}
               .panel-body
                 each item in coininfo.basic_info_links
-                  a(href="#{item[1]}", target="_blank") #{item[0]}
+                  a(href=`${item[1]}`, target="_blank") #{item[0]}
                   <br>
           .col-md-9
             .panel.panel-default
               .panel-body.text-center
                 .row.info-row
                   .col-md-4
-                    img(src='#{settings.logo}', style='width: 256px;')
+                    img(src=`${settings.logo}`, style='width: 256px;')
                   .col-md-4
                     h2 #{settings.coin} &nbsp(#{settings.symbol})
                     span #{lastPriceBtc} BTC
