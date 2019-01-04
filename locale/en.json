@@ -28,6 +28,9 @@
     "ex_supply": "Coin Supply",
     "ex_block": "Block",
     "ex_ledger": "Ledger",
+    "ex_market": "Market",
+    "ex_marketcap": "Market Cap: ",
+    "ex_24hvolume": "24H Volume: ",
 
     // transaction view
     "tx_title": "Transaction Details",

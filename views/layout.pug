@@ -167,32 +167,38 @@ html
           .col-lg-5.col-md-8
             .panel.panel-primary.panel-summary
               .panel-heading.text-center
-                span Market
+                span #{settings.locale.ex_market}
               .panel-body
                 row.text-center
-                  .col-sm-4
-                    h1
-                      label#price_usd
-                      =" USD"
-                    h3
-                      label#price_btc
-                      =" BTC"
-                      span#price_percent_change
-                        =" ("
-                        label#price_percent_change_value
-                        ="%)"
-                  .col-sm-4
-                    p(class="text-right") Market cap:
-                    p(class="text-right") 24H Volume:
-                  .col-sm-4
-                    p(class='text-left')
-                      ="$"
-                      span#cmc_market_cap -
-                      =" USD"
-                    p(class='text-left')
-                      ="$"
-                      span#cmc_volume_24h -
-                      =" USD"
+
+                  .col-md-6
+                    row.text-center
+                      .col-md-12
+                        label#price_usd
+                        =" USD"
+                    row.text-center
+                      .col-md-12
+                        small
+                          span#price_btc 
+                          =" BTC"
+                          span#price_percent_change
+                            =" ("
+                            label#price_percent_change_value
+                            ="%)"
+
+                  .col-md-6
+                    row.text-center
+                      .col-md-12
+                        span.text-left
+                          span #{settings.locale.ex_marketcap}
+                          label#cmc_market_cap -
+                          =" USD"
+                    row.text-center
+                      .col-md-12
+                        span.text-left
+                          span #{settings.locale.ex_24hvolume}
+                          label#cmc_volume_24h -
+                          =" USD"
         else
           .col-lg-3.col-md-0
 
