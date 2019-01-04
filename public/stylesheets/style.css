@@ -1,6 +1,6 @@
 body {
   padding: 80px 40px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Roboto', Helvetica, Arial, sans-serif;
  /* background-image: url('/images/background2.png');*/
 }
 
@@ -43,7 +43,7 @@ body {
 }
 
 .mono {
-	font-family: 'Overpass Mono', monospace;
+	font-family: 'Roboto Mono', monospace;
 }
 
 .panel-address-summary {
