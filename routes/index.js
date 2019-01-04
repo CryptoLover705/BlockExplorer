@@ -483,7 +483,7 @@ router.get('/ext/summary', function(req, res) {
                     hashrate = 0;
                   }
                   res.send({ data: [{
-                    difficulty: BigNumber(difficulty).toFormat(2),
+                    difficulty: BigNumber((difficulty).toFixed(20)).toFormat(6),
                     difficultyHybrid: difficultyHybrid,
                     masternodeCount: masternodecount,
                     masternodeOnlineCount: masternodeonlinecount,
