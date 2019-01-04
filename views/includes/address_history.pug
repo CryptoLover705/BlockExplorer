@@ -9,7 +9,7 @@ tbody
     tr
       td.hidden-xs #{time} 
       td.hidden-xs
-        a.mono(href='/tx/#{tx.txid}') #{tx.txid}
+        a.mono(href='/tx/' + tx.txid) #{tx.txid}
       - var done = false
       - var out = 0
       - var vin = 0

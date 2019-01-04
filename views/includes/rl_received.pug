@@ -17,7 +17,7 @@
           td(style='text-align:center;') 
             =count
           td
-            a.mono(href='/address/#{item.a_id}') #{item.a_id}
+            a.mono(href='/address/' + item.a_id) #{item.a_id}
             include ./rl_labels.pug
           td.hidden-xs.text-right
             =itemFixed.toFixed(8)
