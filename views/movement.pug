@@ -57,7 +57,7 @@ block content
         },
         columns: [
           { data: 'timestamp', width: '25%' },
-          { data: 'txid', width: '60%' },
+          { data: 'txid', width: '60%', className: 'hidden-xs hidden-sm'},
           { data: 'total', width: '15%' },
         ]
       });
@@ -69,5 +69,5 @@ block content
     table#alerts-table.table.table-striped.table-bordered
       thead
         th timestamp
-        th.hidden-xs txid
+        th.hidden-xs.hidden-sm txid
         th amount
