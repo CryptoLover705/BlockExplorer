@@ -210,8 +210,9 @@ is_locked(function (exists) {
               console.log('Run \'npm start\' to create database structures before running this script.');
               exit();
             }else{
-             console.log('trying to update')
             db.update_coingecko_db(settings.coingecko.ticker, function (err) {
+                           console.log('trying to update')
+              console.log(err)
               if (err === true) {
                 console.log('ERROR: %s: %s', settings.coingecko.ticker, err);
               }
