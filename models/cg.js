@@ -16,4 +16,4 @@ var CmcSchema = new Schema({
   last_updated: { type: Number }
 });
 
-module.exports = mongoose.model('cmcs', CmcSchema);
+module.exports = mongoose.model('cgs', CgSchema);
