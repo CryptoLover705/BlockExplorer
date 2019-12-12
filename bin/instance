@@ -56,11 +56,11 @@ db.connect(dbString, function() {
     }); 
   }
 
-  // CoinMarketCap
-  db.check_cmc(settings.coinmarketcap.ticker, function (exists) {
+  // CoinGecko
+  db.check_cg(settings.coingecko.ticker, function (exists) {
     if (exists === false) {
-      console.log("No CoinMarketCap entry found for ticker "+settings.coinmarketcap.ticker+". Creating now...");
-      db.create_cmc(settings.coinmarketcap.ticker, function () {
+      console.log("No CoinGecko entry found for ticker "+settings.coingecko.ticker+". Creating now...");
+      db.create_cg(settings.coingecko.ticker, function () {
 
       });
     }
