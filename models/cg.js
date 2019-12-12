@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
   , Schema = mongoose.Schema;
 
-var CmcSchema = new Schema({
+var CgSchema = new Schema({
   symbol: { type: String },
   rank: { type: String },
   price_usd: { type: String },
