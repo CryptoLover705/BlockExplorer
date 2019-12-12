@@ -202,7 +202,7 @@ is_locked(function (exists) {
               });
             }
           });
-        } else if (database === 'cmc') {
+        } else if (database === 'cg') {
           // update Coingecko
           console.log("Updating CoinGecko data...");
           db.check_cg(settings.coingecko.ticker, function(exists) {
@@ -228,7 +228,7 @@ is_locked(function (exists) {
 
           db.check_cg(settings.coingecko.ticker, function(exists) {
             if (exists === false) {
-              console.log('Run \'npm start\' and sync cmc data before running this script.');
+              console.log('Run \'npm start\' and sync cg data before running this script.');
               exit();
             }
 
