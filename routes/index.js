@@ -297,7 +297,7 @@ router.get('/coininfo', function(req, res) {
             var coinsLocked = totalMnCount * settings.coininfo.masternode_required;
             var coinsLockedPerc = coinsLocked / (stats.supply/100);
             var nodeWorthBtc = (settings.coininfo.masternode_required * priceBtc).toFixed(8);
-            var nodeWorthUsd = (cg.price_usd) ? (settings.coininfo.masternode_required * cg.price_usd).toFixed(2) : null;
+            var nodeWorthUsd = (cg.price_usd) ? (settings.coininfo.masternode_required * cg.price_usd).toFixed(3) : null;
 
             var dailyCoin = formatNum(mnRewardsPerDay, { maxFraction: 4});
             var dailyBtc = formatNum(mnRewardsPerDay * priceBtc, { maxFraction: 8 });
@@ -315,10 +315,10 @@ router.get('/coininfo', function(req, res) {
             var data = {
               active: 'coininfo',
               coininfo: settings.coininfo,
-              lastPriceBtc: formatCurrency(stats.last_price, { maxFraction: 8 }),
-              lastPriceUsd: cg.price_usd ? formatCurrency(cg.price_usd, { maxFraction: 6 }) : null,
+              lastPriceBtc: formatCurrency(stats.last_price, { maxFraction: 9 }),
+              lastPriceUsd: cg.price_usd ? formatCurrency(cg.price_usd, { maxFraction: 8 }) : null,
               pricePercChange24h: cg.percent_change_24h,
-              marketCapUsd: formatCurrency(cg.market_cap_usd, { maxFraction: 2 }),
+              marketCapUsd: formatCurrency(cg.market_cap_usd, { maxFraction: 3 }),
               cg: cg,
               blockCount24h: -1,
               avgBlockTime: -1,
@@ -330,7 +330,7 @@ router.get('/coininfo', function(req, res) {
               coinsLockedPerc: formatNum(coinsLockedPerc, { maxFraction: 2 }),
               mnRequiredCoins: settings.coininfo.masternode_required,
               nodeWorthBtc: formatCurrency(nodeWorthBtc, { maxFraction: 8 }),
-              nodeWorthUsd: nodeWorthUsd ? formatCurrency(nodeWorthUsd, { maxFraction: 2 }) : null,
+              nodeWorthUsd: nodeWorthUsd ? formatCurrency(nodeWorthUsd, { maxFraction: 3 }) : null,
               dailyCoin: dailyCoin,
               dailyBtc: dailyBtc,
               dailyUsd: dailyUsd,
