@@ -209,10 +209,9 @@ is_locked(function (exists) {
             if (exists === false) {
               console.log('Run \'npm start\' to create database structures before running this script.');
               exit();
-            }else{
+            }
             db.update_coingecko_db(settings.coingecko.ticker, function (err) {
-                           console.log('trying to update')
-              console.log(err)
+              console.log('trying to update')
               if (err === true) {
                 console.log('ERROR: %s: %s', settings.coingecko.ticker, err);
               }
@@ -222,7 +221,7 @@ is_locked(function (exists) {
 
               exit();
             });
-            }
+            
           })
         } else if (database === 'mnstats') {
           console.log("Updating Masternode Stats...\n");
