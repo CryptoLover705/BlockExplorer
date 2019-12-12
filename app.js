@@ -28,6 +28,8 @@ if (settings.heavy != true) {
     'getblock',
     'getrawtransaction',
     'getpeerinfo',
+    'getreward',
+    'getstakinginfo',
     'gettxoutsetinfo',
     'getmasternodecount',
     'getmasternodecountonline',
