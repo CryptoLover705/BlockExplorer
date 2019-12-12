@@ -59,8 +59,8 @@ if (process.argv[2] == 'index') {
   }
 } else if (process.argv[2] == 'market'){
   database = 'market';
-} else if (process.argv[2] === 'cmc'){
-  database = 'cmc';
+} else if (process.argv[2] === 'cg'){
+  database = 'cg';
 } else if (process.argv[2] === 'mnstats'){
   database = 'mnstats';
 } else {
@@ -203,20 +203,20 @@ is_locked(function (exists) {
             }
           });
         } else if (database === 'cmc') {
-          // update CoinMarketCap
-          console.log("Updating CoinMarketCap data...");
-          db.check_cmc(settings.coinmarketcap.ticker, function(exists) {
+          // update Coingecko
+          console.log("Updating CoinGecko data...");
+          db.check_cg(settings.coingecko.ticker, function(exists) {
             if (exists === false) {
               console.log('Run \'npm start\' to create database structures before running this script.');
               exit();
             }
 
-            db.update_coinmarketcap_db(settings.coinmarketcap.ticker, function (err) {
+            db.update_coingecko_db(settings.coingecko.ticker, function (err) {
               if (err === true) {
-                console.log('ERROR: %s: %s', settings.coinmarketcap.ticker, err);
+                console.log('ERROR: %s: %s', settings.coingecko.ticker, err);
               }
               else {
-                console.log('  CoinMarketCap for ticker %s updated successfully.', settings.coinmarketcap.ticker);
+                console.log('  CoinGecko for ticker %s updated successfully.', settings.coingecko.ticker);
               }
 
               exit();
@@ -226,13 +226,13 @@ is_locked(function (exists) {
         } else if (database === 'mnstats') {
           console.log("Updating Masternode Stats...\n");
 
-          db.check_cmc(settings.coinmarketcap.ticker, function(exists) {
+          db.check_cg(settings.coingecko.ticker, function(exists) {
             if (exists === false) {
               console.log('Run \'npm start\' and sync cmc data before running this script.');
               exit();
             }
 
-            db.get_cmc(settings.coinmarketcap.ticker, function (cmc) {
+            db.get_cg(settings.coingecko.ticker, function (cg) {
 
               var tsNow = Math.round(new Date().getTime() / 1000);
               var ts24h = tsNow - (24 * 3600);
@@ -272,8 +272,8 @@ is_locked(function (exists) {
                         console.log('  MN  rewards 24h : ', mnReward24h);
                         console.log('  MN     roi days : ', roiDays);
                         console.log('  MN roi % annual : ', (365 / roiDays) * 100);
-                        console.log('  Coin price  BTC : ', cmc.price_btc);
-                        console.log('  Coin price  USD : ', cmc.price_usd);
+                        console.log('  Coin price  BTC : ', cg.price_btc);
+                        console.log('  Coin price  USD : ', cg.price_usd);
 
                         var nwMnStats = new MasternodeStats({
                           symbol: settings.symbol,
@@ -283,8 +283,8 @@ is_locked(function (exists) {
                           count_enabled: mnCountEnabled,
                           roi_days: roiDays,
                           reward_coins_24h: mnReward24h,
-                          price_btc: cmc.price_btc,
-                          price_usd: cmc.price_usd
+                          price_btc: cg.price_btc,
+                          price_usd: cg.price_usd
                         });
 
                         nwMnStats.save(function (err, o) {
