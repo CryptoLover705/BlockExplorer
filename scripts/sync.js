@@ -205,12 +205,12 @@ is_locked(function (exists) {
         } else if (database === 'cg') {
           // update Coingecko
           console.log("Updating CoinGecko data...");
-          db.check_cg("aevo", function(exists) {
+          db.check_cg(settings.coingecko.ticker, function(exists) {
             if (exists === false) {
               console.log('Run \'npm start\' to create database structures before running this script.');
               exit();
             }
-            db.update_coingecko_db("aevo", function (err) {
+            db.update_coingecko_db(settings.coingecko.ticker, function (err) {
               console.log('trying to update')
               if (err === true) {
                 console.log('ERROR: %s: %s', settings.coingecko.ticker, err);
