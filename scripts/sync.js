@@ -60,7 +60,7 @@ if (process.argv[2] == 'index') {
 } else if (process.argv[2] == 'market'){
   database = 'market';
 } else if (process.argv[2] === 'cg'){
-  database = 'cgs';
+  database = 'cg';
 } else if (process.argv[2] === 'mnstats'){
   database = 'mnstats';
 } else {
@@ -202,7 +202,7 @@ is_locked(function (exists) {
               });
             }
           });
-        } else if (database === 'cgs') {
+        } else if (database === 'cg') {
           // update Coingecko
           console.log("Updating CoinGecko data...");
           db.check_cg(settings.coingecko.ticker, function(exists) {
