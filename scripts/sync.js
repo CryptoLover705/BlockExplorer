@@ -210,7 +210,7 @@ is_locked(function (exists) {
               console.log('Run \'npm start\' to create database structures before running this script.');
               exit();
             }
-            db.update_coingecko_db(settings.coingecko.ticker, function (err) {
+            db.update_coingecko_db("aevo", function (err) {
               console.log('trying to update')
               if (err === true) {
                 console.log('ERROR: %s: %s', settings.coingecko.ticker, err);
