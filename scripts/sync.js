@@ -202,7 +202,7 @@ is_locked(function (exists) {
               });
             }
           });
-        } else if (database === 'cg') {
+        } else if (database === 'cgs') {
           // update Coingecko
           console.log("Updating CoinGecko data...");
           db.check_cg(settings.coingecko.ticker, function(exists) {
