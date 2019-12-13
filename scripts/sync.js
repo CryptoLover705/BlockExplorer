@@ -218,7 +218,7 @@ is_locked(function (exists) {
               else {
                 console.log('  CoinGecko for ticker %s updated successfully.', settings.coingecko.ticker);
               }
-
+              console.log('Done')
               exit();
             });
             
