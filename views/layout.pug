@@ -38,23 +38,23 @@ html
             $("#price_btc").text(json.data[0].lastPriceBtc);
             $("#lblX1").text(' ');
             $("#price_usd").text(json.data[0].lastPriceUsd);
-            $("#cmc_market_cap").text(json.data[0].marketCapUsd);
-            $("#cmc_volume_24h").text(json.data[0].marketVolumeUsd);
+            $("#cg_market_cap").text(json.data[0].marketCapUsd);
+            $("#cg_volume_24h").text(json.data[0].marketVolumeUsd);
 
             $("#lblConnections").text(json.data[0].connections + ' connections');
             $("#lblBlockcountValue").text(json.data[0].blockcount);
 
 
-            if (json.data[0].cmc) {
-              if (json.data[0].cmc.percent_change_24h) {
-                $("#price_percent_change_value").text(json.data[0].cmc.percent_change_24h);
-                if (json.data[0].cmc.percent_change_24h.substr(0, 1) === '-')
+            if (json.data[0].cg) {
+              if (json.data[0].cg.percent_change_24h) {
+                $("#price_percent_change_value").text(json.data[0].cg.percent_change_24h);
+                if (json.data[0].cg.percent_change_24h.substr(0, 1) === '-')
                   $("#price_percent_change").attr('class', 'text-danger');
                 else
                   $("#price_percent_change").attr('class', 'text-success');
               }
-              if (json.data[0].cmc.rank)
-                $("#cmc_rank").text(json.data[0].cmc.rank);
+              if (json.data[0].cg.rank)
+                $("#cg_rank").text(json.data[0].cg.rank);
             }
           }});
         }
@@ -164,7 +164,7 @@ html
       .row
         if settings.display.masternodes == false
           .col-lg-1.col-md-2
-        if settings.display.coinmarketcap == true
+        if settings.display.coingecko == true
           .col-lg-6.col-md-7.col-sm-12
             .panel.panel-primary.panel-summary
               .panel-heading.text-center
@@ -192,19 +192,19 @@ html
                       .col-sm-12
                         span.text-left
                           span #{settings.locale.ex_marketcap}
-                          label#cmc_market_cap -
+                          label#cg_market_cap -
                           =" USD"
                     row.text-center
                       .col-sm-12
                         span.text-left
                           span #{settings.locale.ex_24hvolume}
-                          label#cmc_volume_24h -
+                          label#cg_volume_24h -
                           =" USD"
         else
           .col-lg-3.col-md-0
 
         if settings.index.show_coin_supply
-          - supplyPanelSize = settings.display.coinmarketcap == true ? "col-lg-2 col-md-2 col-sm-4" : "col-lg-2 col-md-2 col-sm-4"
+          - supplyPanelSize = settings.display.coingecko == true ? "col-lg-2 col-md-2 col-sm-4" : "col-lg-2 col-md-2 col-sm-4"
           div(class=supplyPanelSize)
             .panel.panel-primary.panel-summary
               .panel-heading.text-center
