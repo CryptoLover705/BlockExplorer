@@ -81,7 +81,7 @@
     "network": true,
     "masternodes": false,
     "coininfo": false,
-    "coinmarketcap": false
+    "coingecko": false
   },
 
   // index page (valid options for difficulty are POW, POS or Hybrid)
