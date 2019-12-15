@@ -60,7 +60,7 @@ if (process.argv[2] == 'index') {
 } else if (process.argv[2] == 'market'){
   database = 'market';
 } else if (process.argv[2] === 'cg'){
-  database = 'cgs';
+  database = 'cg';
 } else if (process.argv[2] === 'mnstats'){
   database = 'mnstats';
 } else {
