@@ -318,7 +318,7 @@ router.get('/coininfo', function(req, res) {
               lastPriceBtc: formatCurrency(stats.last_price, { maxFraction: 10 }),
               lastPriceUsd: cg.price_usd ? formatCurrency(cg.price_usd, { maxFraction: 8 }) : null,
               pricePercChange24h: cg.percent_change_24h,
-              marketCapUsd: formatCurrency(stats.supply*cg.price.usd, { maxFraction: 3 }),
+              marketCapUsd: formatCurrency((stats.supply * cg.price.usd), { maxFraction: 3 }),
               cg: cg,
               blockCount24h: -1,
               avgBlockTime: -1,
