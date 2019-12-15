@@ -512,7 +512,7 @@ router.get('/ext/masternodes', function(req, res) {
     var mnList = [];
 
     for (var key in list) {
-      if (settings.baseType !== 'pivx')
+      if (settings.baseType === 'pivx')
       {
         var mn = list[key];
         var mnItem = {
