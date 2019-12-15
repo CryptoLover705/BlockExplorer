@@ -491,7 +491,7 @@ router.get('/ext/summary', function(req, res) {
                     hashrate: hashrate,
                     lastPriceBtc: formatNum(stats.last_price, { maxFraction: 8 }),
                     lastPriceUsd: formatCurrency(cg.price_usd, { maxFraction: 6 }),
-                    marketCapUsd: formatCurrency(cg.market_cap_usd, { maxFraction: 2 }),
+                    marketCapUsd: formatCurrency((stats.supply * cg.price.usd), { maxFraction: 3 }),
                     marketVolumeUsd: formatCurrency(cg.volume_24h_usd, { maxFraction: 2 }),
                     connections: connections,
                     blockcount: blockcount,
