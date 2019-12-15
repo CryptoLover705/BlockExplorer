@@ -315,7 +315,7 @@ router.get('/coininfo', function(req, res) {
             var data = {
               active: 'coininfo',
               coininfo: settings.coininfo,
-              lastPriceBtc: formatCurrency(stats.last_price, { maxFraction: 9 }),
+              lastPriceBtc: formatCurrency(stats.last_price, { maxFraction: 10 }),
               lastPriceUsd: cg.price_usd ? formatCurrency(cg.price_usd, { maxFraction: 8 }) : null,
               pricePercChange24h: cg.percent_change_24h,
               marketCapUsd: formatCurrency(cg.market_cap_usd, { maxFraction: 3 }),
