@@ -37,15 +37,6 @@ mongoose.connect(dbString, { useNewUrlParser: true }, function(err) {
       lib.syncLoop(body.length, function (loop) {
         var i = loop.iteration();
         var address = trim(body[i].addr.substring(0, body[i].addr.lastIndexOf(":")), "[]");
-        var port = body[i].addr.split(':')[1];
-        db.find_peer(address, function(peer) {
-          if (peer) {
-            if (isNaN(peer['port']) || peer['port'].length < 2 || peer['country'].length < 1) {
-              db.drop_peers(function() {
-                console.log('Saved peers missing ports or country, dropping peers. Re-reun this script afterwards.');
-                exit();
-              });
-            }
             // peer already exists
             loop.next();
           } else {
