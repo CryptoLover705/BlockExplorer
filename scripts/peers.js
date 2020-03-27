@@ -37,7 +37,8 @@ mongoose.connect(dbString, { useNewUrlParser: true }, function(err) {
       lib.syncLoop(body.length, function (loop) {
         var i = loop.iteration();
         var address = trim(body[i].addr.substring(0, body[i].addr.lastIndexOf(":")), "[]");
-        if (peer) {
+        db.find_peer(address, function(peer) {
+          if (peer) {
             // peer already exists
             loop.next();
           } else {
