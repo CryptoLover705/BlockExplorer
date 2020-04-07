@@ -157,8 +157,8 @@
     "block_reward_mn": 5
   },
 
-  // CoinMarketCap integration
-  "coinmarketcap": {
+  // Coingecko integration
+  "coingecko": {
     "ticker": "BTC"
   },
 
