@@ -45,7 +45,6 @@ mongoose.connect(dbString, { useNewUrlParser: true }, function(err) {
             request({uri: 'https://freegeoip.app/json/' + address, json: true}, function (error, response, geo) {
               db.create_peer({
                 address: address,
-                port: port,
                 protocol: body[i].version,
                 version: body[i].subver.replace('/', '').replace('/', ''),
                 country: geo.country
